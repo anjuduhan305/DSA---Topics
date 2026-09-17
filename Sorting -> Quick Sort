@@ -1,0 +1,21 @@
+def partition(L, lower, upper):
+    pivot = L[lower]
+    i = lower
+    # If element at L[j] > pivot.
+    for j in range(lower + 1, upper + 1):
+        if L[j] <= pivot: # If element at L[j] <= pivot.
+            i += 1
+            L[i], L[j] = L[j], L[i]
+    L[lower], L[i] = L[i], L[lower] # Place the pivot in its right position.
+    return i # pivot index position.
+
+def QuickSort(L, lower, upper):
+    if lower < upper:
+        pivot_pos = partition(L, lower, upper)
+        QuickSort(L, lower, pivot_pos-1) # Call quick sort on left partition of pivot.
+        QuickSort(L, pivot_pos+1, upper) # Call quick sort on right partition of pivot.
+    return L # Base Case: Return list L.
+
+# Time complexity : O(n logn)
+# Space complexity : O(logn)
+# Stable : No
