@@ -1,0 +1,16 @@
+def InsertionSort(L):
+    n = len(L)
+    # Case 1: When list contains 1 or none elements.
+    if n <= 1:
+        return L
+    # Case 2: In each iteration compare current and previous element
+    for i in range(1,n):
+        j = i
+        while (j > 0 and L[j] < L[j-1]): # and swap them, when necessary.
+            L[j-1], L[j] = L[j], L[j-1]
+            j -= 1
+    return L
+
+# Time complexity : O(n^2)
+# Space complexity : O(1)
+# Stable : Yes
