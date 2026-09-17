@@ -3,3 +3,6 @@ def LinearSearch(L,v):
         if L[i] == v:
             return i # When the element v is found in list L.
     return False # When the element v is not found in list L.
+
+# Time complexity : O(n)
+# Space complexity : O(1)
