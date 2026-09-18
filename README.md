@@ -1,18 +1,20 @@
 # Codeforces Solutions
 
-This repository contains my Python solutions for programming problems and practice questions.
+This repository contains my Python dummy codes for Data Structures.
 
 ## Language Used:
 - Python
 
-## DSA Topics:
-- Searching
-- Sorting
-- Stack, Queue, Hashing
+## DATA STRUCTURES Topics:
+- Array
+- String
 - Linked List
-- Graph
-- Shortest Path Algorithms
-- Minimum Spanning Tree
- 
+- Stack
+- Queue
+- Hashing
+- Trees
+- Graphs
+- Matrix
+
 ## Goal
-I am using this repository to improve my programming and problem-solving skills into DSA in Python.
+I am using this repository to improve my programming and give a idea about DSA usng Python.
