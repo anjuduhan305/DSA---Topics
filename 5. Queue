@@ -1,0 +1,30 @@
+'''
+    Implementing Queue class:
+    Data members : queue[] - list of integers
+    Functions : constructor __init__(), isempty(), enqueue(), dequeue, __str__()
+'''
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def isempty(self):
+        return self.queue == []
+
+    def enqueue(self, v):
+        self.queue.append(v)
+
+    def dequeue(self):
+        v = None
+        if not self.isempty():
+            v = self.queue[0]
+            self.queue = self.queue[1:]
+        return v
+
+    def peek(self):
+        if not self.isempty():
+            return self.queue[0]
+        return None
+
+    def __str__(self):
+        return str(self.queue)
+
