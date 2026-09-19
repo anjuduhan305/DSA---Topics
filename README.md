@@ -6,7 +6,7 @@ This repository contains my Python dummy codes for Data Structures.
 - Python
 
 ## DATA STRUCTURES Topics:
-- Array
+- Arrays
 - String
 - Linked List
 - Stack
