@@ -1,0 +1,111 @@
+class MyString:
+    def __init__(self, s=""):
+        self.chars = list(s)     #  store string as the list of characters
+        self.length = len(self.chars)
+
+    def __str__(self):
+        return "".join(self.chars)
+
+    def __len__(self):
+        return self.length
+
+
+    # Traversal
+    def display(self):
+        for ch in self.chars:
+            print(ch, end="")
+        print()
+
+
+    # Access
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            raise IndexError("Index out of range")
+        return self.chars[index]
+
+
+    # Reverse
+    def reverse(self):
+        i, j = 0, self.length - 1
+        chars = self.chars[:]
+        while i < j:
+            chars[i], chars[j] = chars[j], chars[i]
+            i += 1
+            j -= 1
+        return "".join(chars)
+
+
+    # Check Palindrome
+    def is_palindrome(self):
+        i, j = 0, self.length - 1
+        while i < j:
+            if self.chars[i] != self.chars[j]:
+                return False
+            i += 1
+            j -= 1
+        return True
+
+
+    # Substring search (naive)
+    def find_substring(self, pattern):
+        n = self.length
+        m = len(pattern)
+        for i in range(n - m + 1):
+            j = 0
+            while j < m and self.chars[i + j] == pattern[j]:
+                j += 1
+            if j == m:
+                return i          # match found, starting index
+        return -1
+
+
+    # Count character frequency 
+    def char_frequency(self):
+        freq = {}
+        for ch in self.chars:
+            freq[ch] = freq.get(ch, 0) + 1
+        return freq
+
+
+    # Remove duplicates
+    def remove_duplicates(self):
+        seen = set()
+        result = []
+        for ch in self.chars:
+            if ch not in seen:
+                seen.add(ch)
+                result.append(ch)
+        return "".join(result)
+
+
+    # Count vowels/consonants
+    def count_vowels(self):
+        vowels = set("aeiouAEIOU")
+        count = 0
+        for ch in self.chars:
+            if ch in vowels:
+                count += 1
+        return count
+
+
+    # Replace character
+    def replace_char(self, old, new):
+        chars = self.chars[:]
+        for i in range(len(chars)):
+            if chars[i] == old:
+                chars[i] = new
+        return "".join(chars)
+
+
+    # Insert / Delete at position
+    def insert(self, index, ch):
+        chars = self.chars[:]
+        chars.insert(index, ch)
+        return "".join(chars)
+
+    def delete(self, index):
+        if index < 0 or index >= self.length:
+            raise IndexError("Index out of range")
+        chars = self.chars[:]
+        chars.pop(index)
+        return "".join(chars)
