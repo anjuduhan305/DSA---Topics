@@ -1,0 +1,38 @@
+class HashTable:
+    def __init__(self, size=7):
+        self.size = size
+        self.table = [[] for _ in range(size)]  # each bucket is a list (chaining)
+
+    def _hash(self, key):
+        # simple hash function: works for integers directly,
+        # for strings/other types, use Python's built-in hash()
+        return hash(key) % self.size
+
+    def insert(self, key, value):
+        index = self._hash(key)
+        bucket = self.table[index]
+        for i, (k, v) in enumerate(bucket):
+            if k == key:                 # key already exists -> update value
+                bucket[i] = (key, value)
+                return
+        bucket.append((key, value))      # new key -> append to bucket (chaining)
+
+    def search(self, key):
+        index = self._hash(key)
+        bucket = self.table[index]
+        for k, v in bucket:
+            if k == key:
+                return v
+        return 'Doesn\'t exist'                      # not found
+
+    def delete(self, key):
+        index = self._hash(key)
+        bucket = self.table[index]
+        for i, (k, v) in enumerate(bucket):
+            if k == key:
+                del bucket[i]
+                return 'Deleted'
+        return 'Not Found'                     # key not found, nothing deleted
+
+    def __str__(self):
+        return str(self.table)
